@@ -20,9 +20,7 @@
     <script>
       // Lấy origin của trang web
       var currentOrigin = window.location.origin;
-      const url = new URL(
-        "https://lamphuchai-dev.github.io/?video=https://rapovideo.xyz/playlist/654b2d6b1f8b50067bfbb800/master.m3u8"
-      );
+      const url = new URL(currentOrigin);
       const urlVideo = url.searchParams.get("video");
       if (urlVideo) {
         var player = videojs("my-video", {
