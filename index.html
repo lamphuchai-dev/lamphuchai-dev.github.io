@@ -2,38 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="./icon/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-    <!-- <meta name="referrer" content="http://motchillzzz.tv" /> -->
-    <script>
-      // Lấy origin của trang web
-      var currentOrigin = window.location.origin;
-
-      // Hiển thị origin trong console
-      console.log("Current Origin:", currentOrigin);
-
-      // var stateObj = { foo: "bar" };
-      // window.history.pushState(stateObj, "", "http://motchillzzz.tv");
-    </script>
-    <script></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
 
   <body>
-    <video
-      id="my-video"
-      class="video-js"
-      controls
-      preload="auto"
-      width="640"
-      height="264"
-      data-setup="{}"
-    >
-      <source
-        src="https://rapovideo.xyz/playlist/654b2d6b1f8b50067bfbb800/master.m3u8"
-        type="application/x-mpegURL"
-      />
-    </video>
+    <video id="my-video" class="video-js" controls preload="auto"></video>
+    <script>
+      // Lấy origin của trang web
+      var currentOrigin = window.location.origin;
+      const url = new URL(
+        "https://lamphuchai-dev.github.io/?video=https://rapovideo.xyz/playlist/654b2d6b1f8b50067bfbb800/master.m3u8"
+      );
+      const urlVideo = url.searchParams.get("video");
+      if (urlVideo) {
+        var player = videojs("my-video", {
+          controls: true,
+          autoplay: false,
+          sources: [
+            {
+              src: urlVideo,
+              type: "application/x-mpegURL",
+            },
+          ],
+          fluid: true,
+          aspectRatio: "16:9",
+        });
+      }
+      console.log("url video =" + urlVideo);
+    </script>
   </body>
 </html>
