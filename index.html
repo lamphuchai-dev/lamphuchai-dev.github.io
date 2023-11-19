@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+    <!-- <link
+      href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css"
+      rel="stylesheet"
+    />
     <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
     <style>
       * {
@@ -13,10 +21,17 @@
         padding: 0;
       }
     </style>
+
+    <script></script>
   </head>
 
   <body>
-    <video id="my-video" class="video-js" controls preload="auto"></video>
+    <video
+      id="my-video"
+      class="video-js vjs-theme-fantasy"
+      controls
+      preload="auto"
+    ></video>
     <script>
       // Lấy origin của trang web
       const url = new URL(window.location.toString());
@@ -33,6 +48,8 @@
           ],
           fluid: true,
           aspectRatio: "16:9",
+          preferFullWindow: true,
+          paused: true,
         });
       }
       console.log("url video =" + urlVideo);
