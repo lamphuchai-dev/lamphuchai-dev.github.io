@@ -60,5 +60,17 @@
       }
       console.log("url video =" + urlVideo);
     </script>
+
+    <script>
+      function pause() {
+        var player = videojs("my-video");
+        player.pause();
+      }
+
+      function play() {
+        var player = videojs("my-video");
+        player.play();
+      }
+    </script>
   </body>
 </html>
